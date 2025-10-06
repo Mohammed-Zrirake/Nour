@@ -1,0 +1,63 @@
+<svg width="180" height="70" viewBox="0 0 180 70" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .text_blue { 
+        font-family: 'Playfair Display', serif; 
+        font-weight: 700; 
+        font-size: 26px; 
+        letter-spacing: 1.5px; 
+        text-align: center; 
+        fill: #1E3A8A; 
+      }
+    </style>
+    <linearGradient id="luminousGold" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#FBE18A"/>
+      <stop offset="100%" stop-color="#B48A35"/>
+    </linearGradient>
+  </defs>
+
+  <!-- White Background -->
+  <rect width="180" height="70" fill="#FFFFFF" />
+
+  <!-- The Group for the entire icon animation -->
+  <g transform="translate(75, 5)">
+    <!-- 1. The filled icon that will appear and pulse -->
+    <path id="icon-fill"
+          d="M17.5 0C-2.5 20, 5.5 27.5, 17.5 35C30.5 27.5, 37.5 20, 17.5 0ZM3.29 10.1C5.79 12.1 11.05 20.3, 8.79 25.1C2.54 18.1 -1.46 13.6, 3.29 10.1Z M31.71 10.1C29.21 12.1 23.95 20.3, 26.21 25.1C32.46 18.1 36.46 13.6, 31.71 10.1Z" 
+          fill="url(#luminousGold)"
+          opacity="0">
+      <!-- 1a. Fade-in animation -->
+      <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="1.5s" fill="freeze" />
+      <!-- 1b. Subtle "breathing" pulse animation after it appears -->
+      <animateTransform attributeName="transform"
+                        type="scale"
+                        values="1; 1.05; 1"
+                        begin="2.5s"
+                        dur="4s"
+                        additive="sum"
+                        repeatCount="indefinite"
+                        transform-origin="17.5 17.5"/>
+    </path>
+
+    <!-- 2. The drawing outline animation path -->
+    <path id="icon-draw"
+          d="M17.5 0C-2.5 20, 5.5 27.5, 17.5 35C30.5 27.5, 37.5 20, 17.5 0ZM3.29 10.1C5.79 12.1 11.05 20.3, 8.79 25.1C2.54 18.1 -1.46 13.6, 3.29 10.1Z M31.71 10.1C29.21 12.1 23.95 20.3, 26.21 25.1C32.46 18.1 36.46 13.6, 31.71 10.1Z"
+          fill="none"
+          stroke="#B48A35"
+          stroke-width="1"
+          stroke-dasharray="200"
+          stroke-dashoffset="200">
+      <!-- 2a. Draw the path -->
+      <animate attributeName="stroke-dashoffset" from="200" to="0" dur="2s" begin="0s" fill="freeze" />
+      <!-- 2b. Fade out the stroke after the fill appears -->
+      <animate attributeName="opacity" from="1" to="0" dur="0.5s" begin="1.5s" fill="freeze" />
+    </path>
+  </g>
+  
+  <!-- 3. The text, which fades in -->
+  <text x="90" y="60" class="text_blue" text-anchor="middle" opacity="0">
+    LUMINARA
+    <!-- 3a. Fade-in animation for the text -->
+    <animate attributeName="opacity" from="0" to="1" dur="1.5s" begin="1s" fill="freeze" />
+  </text>
+</svg>
